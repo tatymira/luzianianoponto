@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02EF46FF-4C66-49D4-B214-9691BF0CE153}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sig.Web</RootNamespace>
+    <AssemblyName>Sig.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\admEmpresas\admEmpresas.html" />
+    <Content Include="app\admEmpresas\admEmpresasCtrl.js" />
+    <Content Include="app\admLinhas\admLinhas.html" />
+    <Content Include="app\admLinhas\admLinhasCtrl.js" />
+    <Content Include="app\admLinhas\cadastrarLinhas.html" />
+    <Content Include="app\admLinhas\cadastrarLinhasCtrl.js" />
+    <Content Include="app\admParadas\admParadas.html" />
+    <Content Include="app\admParadas\admParadasCtrl.js" />
+    <Content Include="app\admTipo\admTipo.html" />
+    <Content Include="app\admTipo\admTipoCtrl.js" />
+    <Content Include="app\app.configService.js" />
+    <Content Include="app\admEmpresas\cadastrarSenha.html" />
+    <Content Include="app\detalhamento\detalhamento.html" />
+    <Content Include="app\detalhamento\detalhamentoCtrl.js" />
+    <Content Include="app\gerenciar\gerenciar.html" />
+    <Content Include="app\gerenciar\gerenciarAdm.html" />
+    <Content Include="app\gerenciar\gerenciarCtrl.js" />
+    <Content Include="app\sugestao\sugestoes.html" />
+    <Content Include="app\sugestao\sugestoesCtrl.js" />
+    <Content Include="app\_services\empresaService.js" />
+    <Content Include="app\_services\inicioService.js" />
+    <Content Include="app\linhas\linhas.html" />
+    <Content Include="app\linhas\linhasCtrl.js" />
+    <Content Include="app\_services\linhasService.js" />
+    <Content Include="app\mapa\mapa.html" />
+    <Content Include="app\mapa\mapaCtrl.js" />
+    <Content Include="app\_services\mapaService.js" />
+    <Content Include="app\navegacao\navegacao.html" />
+    <Content Include="app\navegacao\navegacaoCtrl.js" />
+    <Content Include="app\principal\principal.html" />
+    <Content Include="app\principal\principalCtrl.js" />
+    <Content Include="app\_services\navagecaoService.js" />
+    <Content Include="app\_services\paradasService.js" />
+    <Content Include="app\_services\sugestaoService.js" />
+    <Content Include="app\_services\tiposService.js" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\custom.css" />
+    <Content Include="assets\css\font-awesome.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\images\0-Master\email.png" />
+    <Content Include="assets\css\images\0-Master\empresa.png" />
+    <Content Include="assets\css\images\0-Master\ponto.png" />
+    <Content Include="assets\css\images\0-Master\tipo.png" />
+    <Content Include="assets\css\images\1-Admin\email.png" />
+    <Content Include="assets\css\images\1-Admin\linha.png" />
+    <Content Include="assets\css\images\2-Comum\bairro.png" />
+    <Content Include="assets\css\images\2-Comum\parada.png" />
+    <Content Include="assets\css\images\2-Comum\relogio.png" />
+    <Content Include="assets\css\images\2-Comum\onibus.png" />
+    <Content Include="assets\css\images\icon_init.png" />
+    <Content Include="assets\css\leaflet.css" />
+    <Content Include="assets\css\mdb.css" />
+    <Content Include="assets\css\mdb.min.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\css\images\layers-2x.png" />
+    <Content Include="assets\css\images\layers.png" />
+    <Content Include="assets\css\images\marker-icon-2x.png" />
+    <Content Include="assets\css\images\marker-icon.png" />
+    <Content Include="assets\css\images\marker-shadow.png" />
+    <Content Include="assets\css\images\ifg logo png.png" />
+    <Content Include="assets\lib\bootstrap.js" />
+    <Content Include="assets\lib\bootstrap.min.js" />
+    <Content Include="assets\lib\jquery-3.2.1.min.js" />
+    <Content Include="assets\lib\jquery.mask.min.js" />
+    <Content Include="assets\lib\leaflet-src.js" />
+    <Content Include="assets\lib\leaflet.js" />
+    <Content Include="assets\lib\mdb.js" />
+    <Content Include="assets\lib\mdb.min.js" />
+    <Content Include="assets\lib\popper.min.js" />
+    <Content Include="assets\font\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\font\materialdesignicons-webfont.svg" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\lib\angular-mocks.js" />
+    <Content Include="assets\lib\angular-route.js" />
+    <Content Include="assets\lib\angular-route.min.js" />
+    <Content Include="assets\lib\angular.js" />
+    <Content Include="assets\lib\angular.min.js" />
+    <Content Include="assets\lib\angular.min.js.map" />
+    <Content Include="assets\lib\angular-route.min.js.map" />
+    <Content Include="assets\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\font\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\font\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\lib\leaflet-src.js.map" />
+    <Content Include="assets\lib\leaflet.js.map" />
+    <Content Include="assets\font\materialdesignicons-webfont.eot" />
+    <Content Include="assets\font\materialdesignicons-webfont.ttf" />
+    <Content Include="assets\font\materialdesignicons-webfont.woff" />
+    <Content Include="assets\font\materialdesignicons-webfont.woff2" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - FTP %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - FTP %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - FTP %287%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - Web Deploy %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - Web Deploy %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - Web Deploy %287%29.pubxml" />
+    <None Include="Properties\PublishProfiles\luzianianoponto - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.module.js" />
+    <Content Include="index.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\css\images\lightbox\" />
+    <Folder Include="assets\css\images\overlays\" />
+    <Folder Include="assets\css\images\svg\" />
+    <Folder Include="assets\font\roboto\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55068</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55068/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://luzianianoponto.gear.host/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

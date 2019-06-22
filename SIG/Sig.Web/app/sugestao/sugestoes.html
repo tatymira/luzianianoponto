@@ -1,0 +1,130 @@
+﻿<div class="container bg-white">
+
+    <div class="page-header">
+        <br /><br />
+        <div>
+            <h3>
+                <a href="javascript:history.back()" class="pull-left txt_amarelo1" title="Voltar"><i class="fa fa-arrow-circle-o-left"></i></a>&emsp;
+                <strong>
+                    Caixa de Entrada de Sugestões
+                </strong>
+            </h3>
+            <h5 ng-show="vm.nomeEmpresa != 'masteruser'">Veja as sugestões dadas pelos usuários à <strong>{{vm.nomeEmpresa}}</strong></h5>
+            <h5 ng-show="vm.nomeEmpresa == 'masteruser'">Veja as sugestões dadas pelos usuários e lançadas para <strong>{{vm.nomeEmpresa}}</strong></h5>
+        </div>
+    </div>
+
+    <hr />
+
+    <b>{{vm.sugestoes.length}}</b> resultados
+
+    <b class="pull-right" ng-hide="vm.pesquisaOn" style="cursor:pointer" ng-click="vm.pesquisaOn = true">Pesquisar <i class="fa fa-search"></i></b>
+    <b class="pull-right" ng-show="vm.pesquisaOn"><input type="text" ng-model="pesquisa" placeholder="Pesquisar" id="nome"></b>
+
+
+    <br />
+    <br />
+
+    <div class="row">
+        <table class="table table-responsive bg_table">
+            <thead class="bg_amarelo2">
+                <tr>
+                    <th>DESCRIÇÃO</th>
+                    <th ng-show="vm.nomeEmpresa == 'masteruser'">EMPRESA</th>
+                    <th>NÚMERO</th>
+                    <th>LINHA</th>
+                    <th>DATA</th>
+                    <th style="text-align:center">LANÇAR</th>
+                    <th style="text-align:center">FINALIZAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.sugestoes | filter : pesquisa">
+                    <td>{{item.Descricao}}</td>
+                    <td ng-show="vm.nomeEmpresa == 'masteruser'">{{item.Empresa}}</td>
+                    <td>{{item.Numero}}</td>
+                    <td>{{item.Linha}}</td>
+                    <td>{{item.Data | date : "dd.MM.y"}}</td>
+                    <td style="text-align:center">
+                        <a ng-click="vm.modalLancar(item.Id)" title="Lançar">
+                            <i class="fa fa-2x fa-arrow-circle-o-up txt_amarelo3" ng-show="vm.nomeEmpresa != 'masteruser'"></i>
+                            <i class="fa fa-2x fa-arrow-circle-o-down txt_amarelo3" ng-show="vm.nomeEmpresa == 'masteruser'"></i>
+                        </a>
+                    </td>
+                    <td style="text-align:center">
+                        <a ng-click="vm.modalFinalizar(item.Id)" title="Finalizar">
+                            <i class="fa fa-2x fa-check-square txt_amarelo1"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalLancar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info modal-bottom" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <p class="heading lead">Lançar</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center" ng-show="vm.nomeEmpresa != 'masteruser'">
+                    <i class="fa fa-arrow-circle-o-up fa-3x mb-3 animated rotateIn blue-text"></i>
+                    <div class="md-form form-sm">
+                        Ao lançar essa sugestão você a enviará para o <b>Administrador Master</b> do sistema. Esse recurso deve ser usado em casos de não ser possível a empresa atender a sugestão ou resolver algum problema. Tem certeza que deseja fazer isso?
+                    </div>
+                    <div class="md-form form-sm">
+                        <a class="btn btn-grey pull-left class" data-dismiss="modal" aria-label="Close">Fechar</a>
+                        <a class="btn bg_amarelo1 pull-right" ng-click="vm.lancar()">Lançar</a>
+                    </div>
+                </div>
+
+                <div class="text-center" ng-show="vm.nomeEmpresa == 'masteruser'">
+                    <i class="fa fa-arrow-circle-o-down fa-3x mb-3 animated rotateIn blue-text"></i>
+                    <div class="md-form form-sm">
+                        Ao lançar essa sugestão você a enviará para a <b>empresa responsável pela linha</b> reportada. Esse recurso deve ser usado em casos de não ser possível que Administrador Master atenda a sugestão ou resolva algum problema. Tem certeza que deseja fazer isso?
+                    </div>
+                    <div class="md-form form-sm">
+                        <a class="btn btn-grey pull-left class" data-dismiss="modal" aria-label="Close">Fechar</a>
+                        <a class="btn bg_amarelo1 pull-right" ng-click="vm.lancar()">Lançar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalFinalizar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info modal-bottom" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <p class="heading lead">Finalizar</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fa fa-check-square fa-3x mb-3 animated rotateIn blue-text"></i>
+
+                    <div class="md-form form-sm">
+                        Tem certeza que deseja finalizar essa sugestão?
+                    </div>
+
+                    <div class="md-form form-sm">
+                        <a class="btn btn-grey pull-left class" data-dismiss="modal" aria-label="Close">Fechar</a>
+                        <a class="btn bg_amarelo1 pull-right" ng-click="vm.finalizar()">Finalizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

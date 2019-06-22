@@ -1,0 +1,59 @@
+﻿<div class="container bg-white">
+
+    <div class="page-header">
+        <br />
+        <br />
+        <div>
+            <h3>
+                <a href="javascript:history.back()" class="pull-left txt_amarelo1" title="Voltar"><i class="fa fa-arrow-circle-o-left"></i></a>&emsp;
+                <strong>
+                    Gerenciar Linhas
+                </strong>
+                <a class="btn pull-right bg_amarelo1" ng-click="vm.listarTipos()" href="#/cadastrarLinhas">Cadastrar</a>
+            </h3>
+            <h5>Gerencie as linhas de sua empresa disponíveis para serem pesquisadas pelos usuários</h5>
+        </div>
+    </div>
+
+    <hr />
+
+    <b>{{vm.listalinhas.length}}</b> resultados
+
+    <b class="pull-right" ng-hide="vm.pesquisaOn" style="cursor:pointer" ng-click="vm.pesquisaOn = true">Pesquisar <i class="fa fa-search"></i></b>
+    <b class="pull-right" ng-show="vm.pesquisaOn" ><input type="text" ng-model="pesquisa" placeholder="Pesquisar" id="nome"></b>
+    
+
+    <br />
+    <br />
+    
+    <div class="row">
+        <table class="table table-responsive bg_table">
+            <thead class="bg_amarelo2">
+                <tr>
+                    <th>NÚMERO</th>
+                    <th>NOME</th>
+                    <th>TIPO</th>
+                    <th>TARIFA (R$)</th>
+                    <th>QTD. PARTIDAS</th>
+                    <th style="text-align:right">EDITAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.listalinhas | filter : pesquisa">
+                    <td>{{item.Numero}}</td>
+                    <td>{{item.Nome}}</td>
+                    <td>{{item.Tipo}}</td>
+                    <td>{{item.Tarifa}}</td>
+                    <td>{{item.Partidas}}</td>
+                    <td style="text-align:right">
+                        <a href="#/cadastrarLinhas/{{item.Id}}" title="Clique para editar">
+                            <i class="fa fa-2x fa-pencil txt_amarelo1"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br /><br />

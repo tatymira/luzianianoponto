@@ -1,0 +1,62 @@
+﻿
+<nav class="navbar navbar-dark bg-light-blue" ng-controller="navegacaoCtrl as vm">
+
+    <a class="navbar-brand" href="#/"><i class="fa fa-bus 2x" aria-hidden="true"></i> Luziânia no Ponto</a>
+
+    <ul class="navbar-nav pull-right">
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="modal" data-target="#abrirLogin" ng-hide="vm.cache == true"><i class="fa fa-lock" aria-hidden="true"></i> Login</a>           
+        </li>
+        <li class="nav-item dropdown" ng-show="vm.cache == true">
+            <a class="nav-link dropdown-toggle" id="dropdownNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bem vindo(a), {{vm.usuarioLogado}}</a>
+            <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownNav">
+                <a class="dropdown-item" href="#/"><b>Inicial</b></a>
+                <a class="dropdown-item" ng-show="vm.perfil=='Administrador'" href="#/gerenciarAdm">Administrador</a>
+                <a class="dropdown-item" ng-show="vm.perfil=='Master'" href="#/gerenciar">Master</a>
+                <a class="dropdown-item" ng-click="vm.sairDoLogin()">Sair</a>
+            </div>
+        </li>
+    </ul>
+
+
+    <div class="modal fade" id="abrirLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-blue">
+                    <p class="heading lead">Login</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div ng-show="vm.autenticacaoInvalida">
+                            <h6>
+                                <span class="label label-danger txt_error">
+                                    Autenticação inválida!
+                                    <i class="fa  fa-exclamation-triangle mb-3 animated rotateIn" style="color:#ff1c1c"></i>
+                                </span>
+                            </h6>
+                        </div>
+
+                        <i class="fa  fa-user-o fa-3x mb-3 animated rotateIn blue-text"></i>
+                        <div class="md-form form-sm">
+                            <input type="text" ng-model="vm.usuario.nome" id="nome" class="form-control">
+                            <label for="nome" class="">Usuário</label>
+                        </div>
+                        <div class="md-form form-sm">
+                            <input type="password" ng-model="vm.usuario.senha" id="senha" class="form-control">
+                            <label for="senha" class="">Senha</label>
+                        </div>
+                        <div class="md-form form-sm">
+                            <!--<small class="pull-left" style="color:#808080">Esqueceu?</small>-->
+                            <a class="btn pull-right bg_amarelo1" ng-click="vm.validarLogin(vm.usuario.nome, vm.usuario.senha)">Entrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>

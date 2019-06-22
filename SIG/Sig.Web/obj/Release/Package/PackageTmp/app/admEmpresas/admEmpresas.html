@@ -1,0 +1,157 @@
+﻿<div class="container bg-white">
+
+    <div class="page-header">
+        <br /><br />
+        <h3>
+            <a href="javascript:history.back()" class="pull-left" title="Voltar"><i class="fa fa-arrow-circle-o-left txt_amarelo1"></i></a>&emsp;
+            <strong>Gerenciar Empresas</strong>
+            <a class="btn pull-right bg_amarelo1" data-toggle="modal" data-target="#cadastrarEmpresa">Cadastrar</a>
+        </h3>
+        <h5>Gerencie as empresas da sua cidade que podem cadastrar linha e atender sugestões</h5>
+    </div>
+
+    <hr />
+
+    <b>{{vm.listEmpresas.length}}</b> resultados
+
+    <b class="pull-right" ng-hide="vm.pesquisaOn" style="cursor:pointer" ng-click="vm.pesquisaOn = true">Pesquisar <i class="fa fa-search"></i></b>
+    <b class="pull-right" ng-show="vm.pesquisaOn"><input type="text" ng-model="pesquisa" placeholder="Pesquisar" id="nome"></b>
+
+
+    <br />
+    <br />
+
+    <div class="row">
+        <table class="table table table-responsive bg_table">
+            <thead class="bg_amarelo2">
+                <tr>
+                    <th>NOME</th>
+                    <th>CNPJ</th>
+                    <th>RAZÃO SOCIAL</th>
+                    <th>EMAIL</th>
+                    <th>
+                        <div class="pull-right">
+                            EDITAR
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.listEmpresas | filter : pesquisa">
+                    <td>{{item.Nome}}</td>
+                    <td>{{item.Cnpj}}</td>
+                    <td>{{item.RazaoSocial}}</td>
+                    <td>{{item.Email}}</td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="" title="Clique para editar" ng-click="vm.editarEmpresa(item.Id)">
+                                <i class="fa fa-2x fa-pencil txt_amarelo1"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="cadastrarEmpresa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-notify bg-blue" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <p class="heading lead">{{vm.tituloModal}}</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="vm.limparEscopo()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fa  fa-user-plus fa-3x mb-3 animated rotateIn blue-text"></i>
+
+                    <br />
+                    <br />
+                    <br />
+                    <div class="md-form form-sm">
+                        <input type="text" ng-model="vm.empresa.RazaoSocial" id="razao" class="form-control">
+                        <label class="active" for="razao">Razão Social<br /><small>Login de usuário</small> </label>
+                    </div>
+                    <br />
+
+                    <div class="md-form form-sm">
+                        <input type="text" ng-model="vm.empresa.Nome" id="nome" class="form-control">
+                        <label class="active" for="nome">Nome </label>
+                    </div>
+                    <br />
+
+                    <div class="md-form form-sm">
+                        <input type="text" ng-model="vm.empresa.Cnpj" id="cnpj" class="form-control">
+                        <label class="active" for="cnpj">CNPJ </label>
+                    </div>
+                    <br />
+
+                    <div class="md-form form-sm">
+                        <input type="text" ng-model="vm.empresa.Email" id="email" class="form-control">
+                        <label class="active" for="email">Email </label>
+                    </div>
+
+                    <br />
+                    <div class="md-form form-sm">
+                        <small class="pull-left" style="cursor:pointer" data-toggle="modal" data-target="#janelaDeConfirmacao" ng-click="vm.modalExcluirEmpresa(vm.empresa)" ng-show="vm.empresa.Id > 0"><i>Excluir empresa</i></small>
+                        <a class="btn pull-right bg_amarelo1" ng-click="vm.cadastrarEmpresa(vm.empresa)">Salvar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="janelaDeConfirmacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <p class="heading lead">Confirmação de Exclusão</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="vm.limparEscopo()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fa fa-question fa-3x mb-3 animated rotateIn blue-text"></i>
+                    <div class="md-form form-sm">
+                        Tem certeza de deseja excluir empresa <strong>{{vm.nomeEmpresaParaModal}}</strong>?
+                    </div>
+                    <div class="md-form form-sm">
+                        <a class="btn btn-grey pull-left" data-dismiss="modal" aria-label="Close">Fechar</a>
+                        <a class="btn bg_amarelo1 pull-right" ng-click="vm.excluirEmpresa(vm.idEmpresaParaModal)">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mensagemDeErro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <p class="heading lead">Falha ao excluir empresa <strong>{{vm.nomeEmpresaParaModal}}</strong></p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="vm.limparEscopo()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fa fa-exclamation-triangle fa-3x mb-3 animated rotateIn" style="color:#de0000"></i>
+                    <div class="md-form form-sm">
+                        {{vm.mensagemDeError}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

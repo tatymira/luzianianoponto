@@ -1,0 +1,52 @@
+﻿<div class="container bg-white">
+
+    <div class="page-header">
+        <br /><br />
+        <div>
+            <h3>
+                <a href="javascript:history.back()" class="pull-left txt_amarelo1" title="Voltar"><i class="fa fa-arrow-circle-o-left"></i></a>&emsp;
+                <strong>
+                    Selecione uma linha
+                </strong>
+            </h3>
+            <h5>Consulte as linhas da pesquisa</h5>
+        </div>
+    </div>
+
+    <hr />
+
+    <b>{{vm.pesquisa.length}}</b> resultados
+    <br />
+    <br />
+
+    <div class="row">
+        <table class="table table-responsive bg_table">
+            <thead class="bg_amarelo2">
+                <tr>
+                    <th>DETALHAR</th>
+                    <th>TRAJETO</th>
+                    <th>EMPRESA</th>
+                    <th>NÚMERO</th>
+                    <th>TARIFA</th>
+                    <th>TIPO</th>
+                    <th>QTD. PARTIDAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.pesquisa">
+                    <td>
+                        <a href="#detalhamento/{{item.Id}}" title="Detalhar">
+                            <i class="fa fa-2x fa-navicon txt_amarelo1"></i>
+                        </a>
+                    </td>
+                    <td>{{item.Nome}}</td>
+                    <td>{{item.Empresa.Nome}}</td>
+                    <td>{{item.Numero}}</td>
+                    <td>R$ {{item.Tarifa}}</td>
+                    <td>{{item.Tipo}}</td>
+                    <td>{{item.Partidas}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
