@@ -52,7 +52,7 @@ namespace Sig.Infra._Repository
                 var faixaDeHorarios = consulta[1].Split('-');
                 var horarioUm = faixaDeHorarios[0];
                 var horarioDois = faixaDeHorarios[1];
-                
+
                 foreach (var linha in linhas)
                 {
                     foreach (Horario horario in linha.Horarios)

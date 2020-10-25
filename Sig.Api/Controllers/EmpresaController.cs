@@ -36,7 +36,7 @@ namespace Sig.Api.Controllers
         {
             try
             {
-                Empresa empresa = JsonConvert.DeserializeObject<Empresa>(jsonPostData.empresa.ToString()) as Empresa;                
+                Empresa empresa = JsonConvert.DeserializeObject<Empresa>(jsonPostData.empresa.ToString()) as Empresa;
 
                 if (empresa.Id == 0)
                 {
@@ -53,7 +53,7 @@ namespace Sig.Api.Controllers
                     empresa.Perfil = PerfilEnum.Administrador;
                     empresa.Senha = null;
                 }
-                
+
                 _uow.BeginTransaction();
                 _empresaRep.SaveOrUpdate(empresa);
                 _uow.Execute();
@@ -140,11 +140,11 @@ namespace Sig.Api.Controllers
 
 
                 Empresa empresa = _empresaRep.GetEmpresaPorCnpj(cnpj);
-                
 
-                if(senha1 == senha2)
+
+                if (senha1 == senha2)
                 {
-                    if(empresa.Senha == null)
+                    if (empresa.Senha == null)
                     {
                         empresa.Senha = senha1;
                         _uow.BeginTransaction();

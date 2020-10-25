@@ -35,7 +35,7 @@ namespace Sig.Infra
             objEmail.BodyEncoding = System.Text.Encoding.UTF8;
             objEmail.IsBodyHtml = true;
             objEmail.Priority = MailPriority.Normal;
-            
+
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential("luzianianoponto@gmail.com", "@sigluzianianoponto");

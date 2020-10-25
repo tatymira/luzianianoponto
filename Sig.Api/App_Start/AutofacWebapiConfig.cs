@@ -35,7 +35,7 @@ namespace Sig.Api.App_Start
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
             builder.RegisterType<EmpresaRepository>().As<IEmpresaRepository>();
-            builder.RegisterType<HorarioRepository>().As<IHorarioRepository>(); 
+            builder.RegisterType<HorarioRepository>().As<IHorarioRepository>();
             builder.RegisterType<LinhaRepository>().As<ILinhaRepository>();
             builder.RegisterType<ParadaRepository>().As<IParadaRepository>();
             builder.RegisterType<TipoRepository>().As<ITipoRepository>();

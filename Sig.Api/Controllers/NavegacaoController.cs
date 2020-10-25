@@ -24,7 +24,7 @@ namespace Sig.Api.Controllers
         [HttpGet]
         [Route("navegacao/logar")]
         public IHttpActionResult ValidarLogin(string nome, string senha)
-        {           
+        {
             return Ok(_empRep.ValidarLogin(nome, senha));
         }
     }

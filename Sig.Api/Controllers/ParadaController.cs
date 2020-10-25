@@ -39,8 +39,8 @@ namespace Sig.Api.Controllers
             {
                 IList<Parada> paradasParaInserir = JsonConvert.DeserializeObject<IList<Parada>>(jsonPostData.lstparadas.ToString()) as IList<Parada>;
                 IList<Parada> paradasJaPersistidas = _paradaRep.ListarTodasParadas();
-                
-                foreach(Parada parada in paradasJaPersistidas)
+
+                foreach (Parada parada in paradasJaPersistidas)
                 {
                     _uow.BeginTransaction();
                     _paradaRep.Delete(parada);

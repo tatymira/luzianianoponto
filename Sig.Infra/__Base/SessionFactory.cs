@@ -14,14 +14,14 @@ namespace Sig.Infra.__Base
         public static ISessionFactory GetFactory()
         {
             var configuration = Fluently.Configure()
-                .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(x => x.FromConnectionStringWithKey("DataBase"))
+                .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(x => x.FromConnectionStringWithKey("ElephantSQL"))
                 .ShowSql()
                 .FormatSql())
                 .CurrentSessionContext("web")
                 .Mappings(c => c.FluentMappings.AddFromAssemblyOf<_Map.LinhaMap>());
 
             return configuration.BuildSessionFactory();
-            
+
         }
 
         //public static string Get()

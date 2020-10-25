@@ -14,7 +14,7 @@ app.config(function ($routeProvider) {
         .when('/admLinhas', { templateUrl: '/app/admLinhas/admLinhas.html', controller: 'admLinhasCtrl as vm' })
         .when('/cadastrarLinhas', { templateUrl: '/app/admLinhas/cadastrarLinhas.html', controller: 'cadastrarLinhasCtrl as vm' })
         .when('/cadastrarLinhas/:id', { templateUrl: '/app/admLinhas/cadastrarLinhas.html', controller: 'cadastrarLinhasCtrl as vm' })
-        .when('/admParadas', { templateUrl: '/app/admParadas/admParadas.html', controller: 'admParadasCtrl as vm'})
+        .when('/admParadas', { templateUrl: '/app/admParadas/admParadas.html', controller: 'admParadasCtrl as vm' })
         .when('/admOnibus', { templateUrl: '/app/admOnibus/admOnibus.html', controller: 'admOnibusCtrl as vm' })
         .when('/admEmpresas', { templateUrl: '/app/admEmpresas/admEmpresas.html', controller: 'admEmpresasCtrl as vm' })
         .when('/admTipos', { templateUrl: '/app/admTipo/admTipo.html', controller: 'admTipoCtrl as vm' })

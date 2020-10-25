@@ -15,7 +15,7 @@
                 'Content-Type': 'application/json'
             },
             url: configService.urlApi + 'linha/listar-empresa',
-            params: { nomeEmpresa: nomeEmpresa},
+            params: { nomeEmpresa: nomeEmpresa },
             withCredentials: true
         }
         return $http(request);
@@ -81,6 +81,6 @@
         }
         return $http(request);
     }
-    
+
 
 });

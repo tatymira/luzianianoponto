@@ -24,7 +24,7 @@ namespace Sig.Api.Controllers
             _linhaRep = linhaRep;
             _uow = uow;
         }
-        
+
 
         [HttpPost]
         [Route("tipo")]
@@ -83,10 +83,11 @@ namespace Sig.Api.Controllers
             try
             {
                 var linhasPorTipo = _linhaRep.LinhasPorTipo(id).Count();
-                if(linhasPorTipo > 0)
+                if (linhasPorTipo > 0)
                 {
                     return Ok("O tipo de linha não pode ser excluído porque existem linhas associadas a ele.");
-                }else
+                }
+                else
                 {
                     _uow.BeginTransaction();
                     _tipoRep.Delete(id);

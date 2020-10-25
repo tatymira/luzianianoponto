@@ -58,7 +58,7 @@ namespace Sig.Api.Controllers
                 var linhaTrajeto = jsonPostData.linhaTrajeto;
                 var lstHorarios = jsonPostData.lstHorarios;
                 var nomeEmpresa = jsonPostData.nomeEmpresa.ToString();
-                
+
                 linha.Horarios = new List<Horario>();
                 foreach (var item in lstHorarios)
                 {

@@ -69,7 +69,7 @@ namespace Sig.Api.Controllers
         {
             int id = jsonPostData.idModal;
             Sugestao sugestao = _sugestaoRep.Find(id);
-            if(sugestao.Alocacao== PerfilEnum.Master)
+            if (sugestao.Alocacao == PerfilEnum.Master)
             {
                 sugestao.Alocacao = PerfilEnum.Administrador;
             }
